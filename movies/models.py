@@ -15,11 +15,11 @@ class Movie(models.Model):
     genre = models.CharField(max_length=100, blank=True, null=True)
     platform = models.CharField(max_length=100, blank=True, null=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='wishlist')
-    total_episodes = models.IntegerField(default=0)
+    total_episodes = models.IntegerField(default=1)
     watched_episodes = models.IntegerField(default=0)
     rating = models.FloatField(blank=True, null=True)
     review = models.TextField(blank=True, null=True)
-    image = models.ImageField(upload_to='movie_images/', blank=True, null=True) 
+    image_url = models.URLField(max_length=500, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
